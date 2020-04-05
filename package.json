@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node ./src/server.js",
+    "dev": "cross-env NODE_ENV=stage nodemon --exec babel-node ./src/server.js",
     "clean": "rimraf .cache dist reports tmp",
     "prebuild": "npm run clean && npm run lint",
     "build": "babel src --out-dir dist --copy-files && cp env.yaml ./dist",
@@ -24,7 +24,10 @@
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.1",
     "koa-router": "^8.0.8",
+    "lodash": "^4.17.15",
     "mongoose": "^5.9.7",
+    "swagger2": "^2.0.0",
+    "swagger2-koa": "^2.0.0",
     "yenv": "^2.1.1"
   },
   "devDependencies": {

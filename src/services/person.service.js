@@ -8,6 +8,15 @@ export default class PersonService {
   }
 
   async save (person) {
-    await repository.save(person)
+    const filter = { index: person.index }
+    await repository.save(filter, person, true)
+  }
+
+  async delete (index = 0) {
+    await repository.delete(index)
+  }
+
+  async getByFilter (filter) {
+    return await repository.find(filter)
   }
 }

@@ -1,4 +1,5 @@
 import PersonService from '../services/person.service'
+
 const service = new PersonService()
 
 export default class PersonController {
@@ -13,7 +14,6 @@ export default class PersonController {
   }
 
   async save (ctx) {
-    console.log('controller.save')
     try {
       const data = ctx.request.body
       console.log(data)
@@ -26,5 +26,29 @@ export default class PersonController {
     } catch (error) {
       ctx.throw(500, `An error has ocurred: ${error}`)
     }
+  }
+
+  async delete (ctx) {
+    try {
+      const index = parseInt(ctx.params.index)
+      await service.delete(index)
+      ctx.status = 200
+      ctx.body = {
+        status: 'success'
+      }
+    } catch (error) {
+      ctx.throw(500, `An error has ocurred: ${error}`)
+    }
+  }
+
+  async getByFiler (ctx) {
+    const filter = { country: ctx.params.country }
+    if (ctx.query.eye) {
+      filter.eyeColor = ctx.query.eye
+    }
+    if (ctx.query.gender) {
+      filter.gender = ctx.query.gender
+    }
+    ctx.body = await service.getByFilter(filter)
   }
 }
