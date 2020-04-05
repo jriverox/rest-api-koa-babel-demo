@@ -5,6 +5,8 @@ import logger from 'koa-logger'
 import yenv from 'yenv'
 import mongoose from 'mongoose'
 import routes from './routes'
+import docs from './utils/api-docs'
+import apiError from './utils/api-error'
 
 const { PORT, MONGODB_URL } = yenv()
 const server = new Koa()
@@ -13,6 +15,8 @@ server
   .use(bodyParser())
   .use(json())
   .use(logger())
+  .use(apiError)
+  .use(docs)
 
 routes.map(r => {
   server

@@ -1,5 +1,5 @@
 import PersonService from '../services/person.service'
-import _ from 'lodash'
+
 const service = new PersonService()
 
 export default class PersonController {
