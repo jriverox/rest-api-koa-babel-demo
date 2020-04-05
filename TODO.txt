@@ -1,0 +1,4 @@
+logear en una api koa-morgan
+compresion koa-compress
+uso de koa-helmet para asegurar el app estableciendo los headers
+unit test
