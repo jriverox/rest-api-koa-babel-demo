@@ -24,7 +24,7 @@
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.1",
     "koa-router": "^8.0.8",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mongoose": "^5.9.7",
     "swagger2": "^2.0.0",
     "swagger2-koa": "^2.0.0",
